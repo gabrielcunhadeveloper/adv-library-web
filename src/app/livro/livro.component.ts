@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Livro } from './livro.model';
 
 @Component({
   selector: 'app-livro',
@@ -7,9 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LivroComponent implements OnInit {
 
-  constructor() { }
+  livro: Livro
+  autores: Array<String>
+  contador: number
+
+  constructor() { 
+    this.autores  = []
+    this.contador = 0
+  }
 
   ngOnInit() {
+  }
+
+  addAutor(autor: string) {
+    if (autor) {
+      this.autores.push(autor)
+      this.contador++
+    }
   }
 
 }
