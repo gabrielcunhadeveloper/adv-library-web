@@ -13,18 +13,21 @@ export class LivroComponent implements OnInit {
   contador: number
 
   constructor() { 
-    this.autores  = []
     this.contador = 0
   }
-
+  
   ngOnInit() {
   }
-
-  addAutor(autor: string) {
-    if (autor) {
-      this.autores.push(autor)
-      this.contador++
+  
+  addAutor(autor: string) {  
+    if (!this.autores) {
+      this.autores  = []
     }
+    this.autores.push(autor)
+  }
+
+  addLivro() {
+
   }
 
 }

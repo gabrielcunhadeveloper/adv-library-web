@@ -68,18 +68,16 @@
 
             </div>
 
-            <div class="row">
+            <div *ngIf="autores" class="row">
                 <div class="col-sm-6">
                     <table class="table">
                         <thead>
                           <tr>
-                            <th scope="col" style="width: 10%;">#</th>
-                            <th scope="col">Nome</th>
+                            <th scope="col">Autor(es)</th>
                           </tr>
                         </thead>
                         <tbody>
-                          <tr *ngFor="let autor of autores" >
-                            <th scope="row">{{contador}}</th>
+                          <tr *ngFor="let autor of autores" >                            
                             <td>{{autor}}</td>
                           </tr>
                         </tbody>
@@ -89,6 +87,6 @@
 
         </div>
         <div class="card-footer">
-            <button type="submit" class="btn btn-primary ">Salvar</button>
+            <button type="submit" class="btn btn-primary" (click)="addLivro(livro)">Salvar</button>
         </div>
     </form>
