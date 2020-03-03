@@ -10,6 +10,7 @@ import { MenuComponent } from './dashboard/menu/menu.component';
 import { SidebarComponent } from './dashboard/menu/sidebar/sidebar.component';
 import { LivroComponent } from './livro/livro.component';
 import { AutorComponent } from './autor/autor.component';
+import { AutoFocusDirective } from './shared/input/auto-focus.directive';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AutorComponent } from './autor/autor.component';
     MenuComponent,
     SidebarComponent,
     LivroComponent,
-    AutorComponent
+    AutorComponent,
+    AutoFocusDirective
   ],
   imports: [
     BrowserModule,

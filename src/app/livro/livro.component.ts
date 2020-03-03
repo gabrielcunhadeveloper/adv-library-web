@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Inject, PLATFORM_ID } from '@angular/core';
 import { Livro } from './livro.model';
 
 @Component({
@@ -12,18 +12,30 @@ export class LivroComponent implements OnInit {
   autores: Array<String>
   contador: number
 
-  constructor() { 
+  constructor() {
     this.contador = 0
   }
-  
+
   ngOnInit() {
   }
-  
-  addAutor(autor: string) {  
-    if (!this.autores) {
-      this.autores  = []
+
+  addAutor(inputAutor: any) {
+    if (!this.autores && inputAutor.value) {
+      this.autores = []
     }
-    this.autores.push(autor)
+    if (inputAutor.value) {
+      this.autores.push(inputAutor.value)
+    }
+    inputAutor.value = null
+  }
+
+  removerAutorLista(autor: any) {
+    
+    this.autores.splice(this.autores.indexOf(autor), 1)
+
+    if (!this.autores || !this.autores.length) {
+      this.autores = null
+    }
   }
 
   addLivro() {
